@@ -7,3 +7,12 @@ export function isNumber(price){
     }
     console.log("great")
 }
+
+export function isEmpty(found){
+    if (found.length > 0) {
+        return found
+    } else {
+        console.log("Sorry, could not find this stock")
+        return found
+    }
+}
