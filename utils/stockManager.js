@@ -5,7 +5,10 @@ const searchStock = (identifier) => {
     if (found.length > 0) {
         return found
     }
-    return "Sorry, could not find this stock"
+    console.log("Sorry, could not find this stock")
+    return found
 }
-function filterStocksByPrice(givenPrice, above) {}
+function filterStocksByPrice(givenPrice, above) {
+
+}
 function OperateOnStock(operation, identifier) {}
