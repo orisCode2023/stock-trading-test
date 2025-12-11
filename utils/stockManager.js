@@ -2,9 +2,9 @@ import input from "analiza-sync"
 import { stockMarket } from "../data/dataStock.js"
 import { isNumber, isEmpty, isAvailable, validOperations, calcPercent } from "./helper.js"
 
-const searchStock = (identifier) => isEmpty(stockMarket.stocks.filter(stock => stock.name === identifier || stock.id === identifier ))
+export const searchStock = (identifier) => isEmpty(stockMarket.stocks.filter(stock => stock.name === identifier || stock.id === identifier ))
 
-function filterStocksByPrice(givenPrice, above) {
+export function filterStocksByPrice(givenPrice, above) {
     isNumber(givenPrice)
     if (above){
         return isEmpty(stockMarket.stocks.filter(stock => stock.currentPrice > givenPrice))
@@ -51,7 +51,7 @@ function updatePriceCatagorySub(stock){
     console.log(`The stock catagory price went down from ${stock.previousPrices[stock.previousPrices.length - 1]} to ${stock.currentPrice}`)
 }
 
-function operateOnStock(operation, identifier) {
+export function operateOnStock(operation, identifier) {
     validOperations(operation)
     const stock = searchStock(identifier)
     const amount = input(`How many stocks do you want to ${operation} ?  `)
@@ -59,4 +59,3 @@ function operateOnStock(operation, identifier) {
     updateStockPrice(operation, stock[0])
     updateTime()
 }
-operateOnStock("buy", "BrightFuture Academy")
